@@ -87,11 +87,10 @@ const config: Config = {
         },
         {
           href: "https://github.com/あなたのユーザー名/リポジトリ名",
-          label: "GitHub",
           position: "right",
           className: "navbar-github-link",
           "aria-label": "GitHub repository",
-          // アイコン用のSVGを直接追加
+          // labelを削除
           html: `
             <svg
               xmlns="http://www.w3.org/2000/svg"
