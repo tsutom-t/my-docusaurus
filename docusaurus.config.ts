@@ -8,10 +8,10 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: " https://tsutom-t.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: "/my-docusaurus",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -67,7 +67,7 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "My Site",
+      title: "TsutomuT",
       logo: {
         alt: "My Site Logo",
         src: "img/logo.svg",
@@ -130,7 +130,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} TsutomT, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
