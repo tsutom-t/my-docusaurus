@@ -67,7 +67,7 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "TsutomuT",
+      title: "TsutomuT-Plus",
       logo: {
         alt: "My Site Logo",
         src: "img/logo.svg",
@@ -80,13 +80,9 @@ const config: Config = {
           label: "Tutorial",
         },
         { to: "/blog", label: "Blog", position: "left" },
+
         {
-          href: "https://github.com/facebook/docusaurus",
-          label: "GitHub",
-          position: "right",
-        },
-        {
-          href: "https://github.com/あなたのユーザー名/リポジトリ名",
+          href: "https://github.com/tsutom-t/my-docusaurus",
           position: "right",
           className: "navbar-github-link",
           "aria-label": "GitHub repository",
