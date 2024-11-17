@@ -17,3 +17,8 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+greetings:
+  label: Greetings
+  permalink: /tomt
+  description: Blog posts related to greetings.
