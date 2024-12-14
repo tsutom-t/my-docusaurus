@@ -24,16 +24,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
-
-      # Turboのキャッシュを設定
-      - name: Cache Turbo build
-        uses: actions/cache@v3
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
 
       - name: Install Turbo
         run: npm install turbo --global
@@ -46,15 +36,22 @@ jobs:
 
       - name: Build Next.js
         run: turbo run build --filter=web
+        # next exportコマンドを削除
 
-      # デプロイを1つのステップにまとめる
-      - name: Deploy to GitHub Pages
+      - name: Deploy Docusaurus to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          exclude_assets: "**/node_modules/**"
-          keep_files: true
+          publish_dir: ./apps/docs/build
+          destination_dir: docs
           user_name: "tsutom-t"
           user_email: "takatop162@gmail.com"
-          commit_message: "Deploy updates"
+
+      - name: Deploy Next.js to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./apps/web/out
+          destination_dir: web
+          user_name: "tsutom-t"
+          user_email: "takatop162@gmail.com"
