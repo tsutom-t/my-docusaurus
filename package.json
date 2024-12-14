@@ -14,6 +14,7 @@
     "start-next": "turbo run dev --filter=web"
   },
   "devDependencies": {
+    "@types/node": "^22.10.2",
     "turbo": "^2.3.3"
   }
 }
