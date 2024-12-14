@@ -10,10 +10,10 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "GIT_USER=$GIT_USER docusaurus deploy",
     "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
+    "serve": "docusaurus serve --port 3001",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "turbo run typecheck --filter=docs"
   },
   "dependencies": {
     "@docusaurus/core": "^3.6.3",
@@ -55,6 +55,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   }
 }
