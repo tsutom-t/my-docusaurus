@@ -1,6 +1,8 @@
+import type { NextConfig } from "next";
+
 const isProd = process.env.NODE_ENV === "production";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   // GitHub Pages用のベースパスとアセットパスの設定
   basePath: isProd ? "/my-docusaurus/web" : "",
   assetPrefix: isProd ? "/my-docusaurus/web/" : "",
@@ -18,4 +20,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
