@@ -9,11 +9,10 @@ const config: Config = {
 
   // GitHub Pages URL設定
   url: "https://tsutom-t.github.io",
-  baseUrl: "/my-docusaurus/", // 修正: スラッシュを追加
-
+  baseUrl: "/my-docusaurus/", // ベースパスを設定
   organizationName: "tsutom-t",
   projectName: "my-docusaurus",
-  trailingSlash: true, // 修正: GitHub Pages用に設定
+  trailingSlash: true, // 静的HTMLエクスポート用
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -91,7 +90,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           editUrl:
-            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/", // 修正: 正しいリポジトリURLに変更
+            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/", // 正しいリポジトリURL
         },
         blog: {
           showReadingTime: true,
@@ -100,13 +99,13 @@ const config: Config = {
             xslt: true,
           },
           editUrl:
-            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/blog/", // 修正: 編集URLを調整
+            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/blog/", // 正しい編集URL
           onInlineTags: "warn",
           onInlineAuthors: "ignore",
           onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: require.resolve("./src/css/custom.css"), // 明示的にパスを解決
         },
       } satisfies Preset.Options,
     ],
