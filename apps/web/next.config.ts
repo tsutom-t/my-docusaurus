@@ -11,11 +11,9 @@ const nextConfig: NextConfig = {
   output: "export",
   reactStrictMode: true,
 
-  // images: {
-  //   unoptimized: true,
-  //   loader: "custom",
-  //   loaderFile: "./image-loader.js",
-  // },
+  images: {
+    unoptimized: true, // 静的エクスポートの場合は必須
+  },
 
   webpack: (config) => {
     if (isProd) {
