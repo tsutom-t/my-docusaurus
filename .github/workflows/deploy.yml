@@ -1,4 +1,4 @@
-name: Deploy Docusaurus to GitHub Pages
+name: Deploy Monorepo to GitHub Pages
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy Docusaurus and Next.js
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,21 +20,35 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          bun-version: latest
+          node-version: 20
+
+      - name: Install Turbo
+        run: npm install turbo --global
 
       - name: Install dependencies
-        run: bun install
+        run: npm install
 
-      - name: Build
-        run: bun run build
+      - name: Build Docusaurus
+        run: turbo run build --filter=docs
 
-      - name: Deploy
+      - name: Build Next.js
+        run: turbo run build --filter=web
+
+      - name: Deploy Docusaurus
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./apps/docs/build
+          user_name: "tsutom-t"
+          user_email: "takatop162@gmail.com"
+
+      - name: Deploy Next.js
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./apps/web/out
           user_name: "tsutom-t"
           user_email: "takatop162@gmail.com"
