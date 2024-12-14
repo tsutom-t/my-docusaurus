@@ -34,21 +34,24 @@ jobs:
       - name: Build Docusaurus
         run: turbo run build --filter=docs
 
-      - name: Build Next.js
-        run: turbo run build --filter=web
+      - name: Build and Export Next.js
+        run: |
+          turbo run build --filter=web
+          cd apps/web
+          npx next export
 
-      - name: Deploy Docusaurus
+      - name: Deploy Docusaurus to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./apps/docs/build
+          publish_dir: ./apps/docs/build # Docusaurus 出力ディレクトリ
           user_name: "tsutom-t"
           user_email: "takatop162@gmail.com"
 
-      - name: Deploy Next.js
+      - name: Deploy Next.js to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./apps/web/out
+          publish_dir: ./apps/web/out # Next.js 出力ディレクトリ
           user_name: "tsutom-t"
           user_email: "takatop162@gmail.com"

@@ -7,7 +7,11 @@
   ],
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build"
+    "build": "turbo build",
+    "serve-docusaurus": "turbo run serve --filter=docs",
+    "serve-next": "turbo run dev --filter=web",
+    "start-docusaurus": "turbo run start --filter=docs",
+    "start-next": "turbo run dev --filter=web"
   },
   "devDependencies": {
     "turbo": "^2.3.3"

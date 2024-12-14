@@ -1,6 +1,5 @@
-import { themes as prismThemes } from "prism-react-renderer";
-import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import type { Config } from "@docusaurus/types";
 import path from "path";
 
 const config: Config = {
@@ -8,12 +7,13 @@ const config: Config = {
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
+  // GitHub Pages URL設定
   url: "https://tsutom-t.github.io",
-  baseUrl: "/my-docusaurus",
+  baseUrl: "/my-docusaurus/", // 修正: スラッシュを追加
 
   organizationName: "tsutom-t",
   projectName: "my-docusaurus",
-  trailingSlash: false,
+  trailingSlash: true, // 修正: GitHub Pages用に設定
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -91,7 +91,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/", // 修正: 正しいリポジトリURLに変更
         },
         blog: {
           showReadingTime: true,
@@ -100,7 +100,7 @@ const config: Config = {
             xslt: true,
           },
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/blog/", // 修正: 編集URLを調整
           onInlineTags: "warn",
           onInlineAuthors: "ignore",
           onUntruncatedBlogPosts: "warn",
