@@ -9,7 +9,7 @@ const config: Config = {
 
   // GitHub Pages URL設定
   url: "https://tsutom-t.github.io",
-  baseUrl: "/my-docusaurus/", // ベースパスを設定
+  baseUrl: "/my-docusaurus/docs/", // ベースパスを設定
   organizationName: "tsutom-t",
   projectName: "my-docusaurus",
   trailingSlash: true, // 静的HTMLエクスポート用
