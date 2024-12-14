@@ -44,6 +44,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./apps/docs/build # Docusaurus 出力ディレクトリ
+          destination_dir: docs # GitHub Pages上のdocsディレクトリ
           user_name: "tsutom-t"
           user_email: "takatop162@gmail.com"
 
@@ -52,5 +53,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./apps/web/out # Next.js 出力ディレクトリ
+          destination_dir: web # GitHub Pages上のwebディレクトリ
           user_name: "tsutom-t"
           user_email: "takatop162@gmail.com"
