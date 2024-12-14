@@ -13,11 +13,6 @@ const nextConfig: NextConfig = {
 
   // その他の設定
   reactStrictMode: true,
-
-  // // App Router 固有の設定
-  // experimental: {
-  //   appDir: true, // App Router を有効化
-  // },
 };
 
 export default nextConfig;
