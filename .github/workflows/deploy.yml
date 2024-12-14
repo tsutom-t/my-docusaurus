@@ -38,6 +38,7 @@ jobs:
         run: |
           turbo run build --filter=web
           cd apps/web
+          npx next export  # 静的エクスポートの実行
 
       - name: Deploy Docusaurus to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

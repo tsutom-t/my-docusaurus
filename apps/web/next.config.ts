@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
-  // ベースパスとアセットパスの設定 (本番環境のみ適用)
+  // GitHub Pages用のベースパスとアセットパスの設定
   basePath: isProd ? "/my-docusaurus/web" : "",
   assetPrefix: isProd ? "/my-docusaurus/web/" : "",
 
@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
 
   // その他の設定
   reactStrictMode: true,
+
+  // 必要に応じて画像の設定を追加
+  images: {
+    unoptimized: true, // 画像の最適化を無効化する（GitHub Pagesの制限を避けるため）
+  },
 };
 
 export default nextConfig;
