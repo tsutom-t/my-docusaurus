@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === "production";
-const basePath = isProd ? "/my-docusaurus" : "";
+const basePath = isProd ? "/my-docusaurus/web" : "";
 
 const nextConfig: NextConfig = {
   basePath: basePath,
