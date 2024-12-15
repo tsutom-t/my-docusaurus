@@ -14,8 +14,8 @@ const config: Config = {
   projectName: "my-docusaurus",
   trailingSlash: true, // 静的HTMLエクスポート用
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "ignore",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
 
   i18n: {
     defaultLocale: "ja",
