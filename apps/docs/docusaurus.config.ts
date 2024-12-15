@@ -120,7 +120,7 @@ const config: Config = {
       },
       items: [
         {
-          to: "/docs/intro",
+          to: "/docs/Financial-prediction-Ai-assistant/development-strategy",
           label: "Docs",
           position: "left",
         },
@@ -145,7 +145,7 @@ const config: Config = {
           items: [
             {
               label: "Getting Started",
-              to: "/docs/intro",
+              to: "/docs/financial-prediction-ai-assistant",
             },
           ],
         },
