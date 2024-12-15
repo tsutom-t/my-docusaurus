@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-const baseUrl = process.env.NODE_ENV === "production" ? "/my-docusaurus" : "";
+const baseUrl =
+  process.env.NODE_ENV === "production" ? "/my-docusaurus/web" : "";
 
 export default function Home() {
   return (
