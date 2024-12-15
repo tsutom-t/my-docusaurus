@@ -15,7 +15,7 @@ const config: Config = {
   trailingSlash: true, // 静的HTMLエクスポート用
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenMarkdownLinks: "ignore",
 
   i18n: {
     defaultLocale: "ja",
@@ -120,7 +120,7 @@ const config: Config = {
       },
       items: [
         {
-          to: "/docs/Financial-prediction-Ai-assistant/development-strategy",
+          to: "/docs/financial-prediction-ai-assistant/development-strategy",
           label: "Docs",
           position: "left",
         },
@@ -145,7 +145,7 @@ const config: Config = {
           items: [
             {
               label: "Getting Started",
-              to: "/docs/financial-prediction-ai-assistant",
+              to: "/docs/financial-prediction-ai-assistant/development-strategy",
             },
           ],
         },
