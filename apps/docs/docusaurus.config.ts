@@ -100,6 +100,11 @@ const config: Config = {
           },
           editUrl:
             "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/blog/", // 正しい編集URL
+          remarkPlugins: [],
+          rehypePlugins: [],
+          showLastUpdateTime: true,
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
           onInlineTags: "warn",
           onInlineAuthors: "ignore",
           onUntruncatedBlogPosts: "warn",
