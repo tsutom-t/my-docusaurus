@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
 
   trailingSlash: true,
   output: "export",
-  reactStrictMode: true,
+  reactStrictMode: false, // 厳格モードを一時的に無効化
 
   images: {
     unoptimized: true, // 静的エクスポートの場合は必須
