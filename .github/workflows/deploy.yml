@@ -47,9 +47,12 @@ jobs:
         run: turbo run build --filter=docs
 
       - name: Build Next.js
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
         run: |
-          turbo run build --filter=web
-          turbo run export --filter=web
+          cd apps/web
+          npm run build || (cat .next/build-log.txt && exit 1)
+          npm run export
 
       - name: Deploy Docusaurus to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
