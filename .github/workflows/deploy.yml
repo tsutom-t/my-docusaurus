@@ -32,7 +32,7 @@ jobs:
             ~/.npm
             ${{ github.workspace }}/node_modules
             ${{ github.workspace }}/apps/web/.next/cache
-            ${{ github.workspace }}/apps/docs/.next/cache
+            ${{ github.workspace }}/apps/docs/.docusaurus/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
@@ -51,23 +51,19 @@ jobs:
           NODE_OPTIONS: "--max_old_space_size=4096"
         run: |
           cd apps/web
-          npm run build || (cat .next/build-log.txt && exit 1)
+          npm run build
           npm run export
 
-      - name: Deploy Docusaurus to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./apps/docs/build
-          destination_dir: docs
-          user_name: "tsutom-t"
-          user_email: "takatop162@gmail.com"
+      - name: Prepare deployment folder
+        run: |
+          mkdir -p ./out/docs ./out/web
+          mv ./apps/docs/build/* ./out/docs/
+          mv ./apps/web/out/* ./out/web/
 
-      - name: Deploy Next.js to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./apps/web/out
-          destination_dir: web
+          publish_dir: ./out
           user_name: "tsutom-t"
           user_email: "takatop162@gmail.com"

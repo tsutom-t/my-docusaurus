@@ -11,10 +11,16 @@
     "serve-docusaurus": "turbo run serve --filter=docs",
     "serve-next": "turbo run dev --filter=web",
     "start-docusaurus": "turbo run start --filter=docs",
-    "start-next": "turbo run dev --filter=web"
+    "start-next": "turbo run dev --filter=web",
+    "lint": "turbo lint"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "turbo": "^2.3.3"
+  },
+  "dependencies": {
+    "next": "^14.2.20",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
