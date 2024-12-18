@@ -33,9 +33,9 @@ jobs:
             ${{ github.workspace }}/node_modules
             ${{ github.workspace }}/apps/web/.next/cache
             ${{ github.workspace }}/apps/docs/.next/cache
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Install Turbo
         run: npm install turbo --global
