@@ -25,44 +25,20 @@ jobs:
         with:
           node-version: 20
 
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.npm
-            ${{ github.workspace }}/node_modules
-            ${{ github.workspace }}/apps/web/.next/cache
-            ${{ github.workspace }}/apps/docs/.docusaurus/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-
-      - name: Install Turbo
-        run: npm install turbo --global
-
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build Docusaurus
-        run: turbo run build --filter=docs
-
       - name: Build Next.js
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
-        run: |
-          cd apps/web
-          npm run build
+        run: npm run build --workspace=web
 
-      - name: Prepare deployment folder
-        run: |
-          mkdir -p ./out/docs ./out/web
-          mv ./apps/docs/build/* ./out/docs/
-          mv ./apps/web/out/* ./out/web/
+      - name: Build Docusaurus
+        run: npm run build --workspace=docs
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          user_name: "tsutom-t"
-          user_email: "takatop162@gmail.com"
+        run: |
+          mkdir -p ./docs
+          cp -r ./apps/web/out/* ./docs/
+          cp -r ./apps/docs/build/* ./docs/
+          touch ./docs/.nojekyll
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
