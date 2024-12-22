@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "check-types": "tsc --noEmit",
-    "deploy": "npm run build && mkdir -p ../../docs && rm -rf ../../docs/* && cp -r out/* ../../docs/"
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "next": "^14.2.20",
