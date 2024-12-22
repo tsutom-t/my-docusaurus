@@ -55,8 +55,8 @@ jobs:
 
       - name: Prepare deployment folder
         run: |
-          mkdir -p ./out/docs ./out/web
-          mv ./apps/docs/build/* ./out/docs/
+          mkdir -p ./out/web
+          mv ./apps/docs/build/* ./out/
           mv ./apps/web/out/* ./out/web/
 
       - name: Deploy to GitHub Pages
