@@ -9,10 +9,10 @@ const config: Config = {
 
   // GitHub Pages URL設定
   url: "https://tsutom-t.github.io",
-  baseUrl: "/my-docusaurus/docs/", // ベースパスを設定
+  baseUrl: "/my-docusaurus/",
   organizationName: "tsutom-t",
   projectName: "my-docusaurus",
-  trailingSlash: true, // 静的HTMLエクスポート用
+  trailingSlash: true,
 
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
@@ -90,7 +90,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           editUrl:
-            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/", // 正しいリポジトリURL
+            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/",
         },
         blog: {
           showReadingTime: true,
@@ -99,7 +99,7 @@ const config: Config = {
             xslt: true,
           },
           editUrl:
-            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/blog/", // 正しい編集URL
+            "https://github.com/tsutom-t/my-docusaurus/tree/main/apps/docs/blog/",
           remarkPlugins: [],
           rehypePlugins: [],
           showLastUpdateTime: true,
@@ -110,7 +110,7 @@ const config: Config = {
           onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"), // 明示的にパスを解決
+          customCss: require.resolve("./src/css/custom.css"),
         },
       } satisfies Preset.Options,
     ],
@@ -125,7 +125,7 @@ const config: Config = {
       },
       items: [
         {
-          to: "/docs/financial-prediction-ai-assistant/development-strategy",
+          to: "docs/financial-prediction-ai-assistant/development-strategy",
           label: "Docs",
           position: "left",
         },
@@ -150,7 +150,7 @@ const config: Config = {
           items: [
             {
               label: "Getting Started",
-              to: "/docs/financial-prediction-ai-assistant/development-strategy",
+              to: "docs/financial-prediction-ai-assistant/development-strategy",
             },
           ],
         },
